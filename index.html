@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Resmi Class X PM 1 - SMK Pasundan 1 Cimahi</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* CSS RESET & VARIABLES */
+        :root {
+            --primary: #0f172a;
+            --accent: #0ea5e9;
+            --accent-hover: #0284c7;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --radius: 16px;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* HERO HEADER */
+        header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0369a1 100%);
+            color: white;
+            padding: 4rem 1rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(30deg);
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .badge-class {
+            background: rgba(14, 165, 233, 0.2);
+            border: 1px solid var(--accent);
+            color: #38bdf8;
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+
+        /* NAVIGATION */
+        nav {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        nav ul li a {
+            color: #cbd5e1;
+            text-decoration: none;
+            padding: 1rem 1.2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: white;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* CONTAINER & SECTION */
+        .container {
+            max-width: 1100px;
+            margin: 2.5rem auto;
+            padding: 0 1.2rem;
+        }
+
+        section {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid #f1f5f9;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .section-title i {
+            color: var(--accent);
+            background: #e0f2fe;
+            padding: 10px;
+            border-radius: 12px;
+            font-size: 1.2rem;
+        }
+
+        /* 1. PROFIL CARD GRID */
+        .profil-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .profil-card {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .profil-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .profil-card h3 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .profil-card ul {
+            list-style: none;
+        }
+
+        .profil-card ul li {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .profil-card ul li strong {
+            color: var(--text-main);
+        }
+
+        /* 2. JADWAL PELAJARAN (TIMELINE STYLE) */
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .day-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .day-header {
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 1.2rem;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .day-header span {
+            background: rgba(255,255,255,0.2);
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+        }
+
+        .subject-list {
+            list-style: none;
+            padding: 1rem;
+        }
+
+        .subject-item {
+            padding: 0.8rem;
+            border-bottom: 1px dashed #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .subject-item:last-child {
+            border-bottom: none;
+        }
+
+        .subject-info .time {
+            font-size: 0.75rem;
+            color: var(--accent);
+            font-weight: 600;
+            display: block;
+        }
+
+        .subject-info .name {
+            font-weight: 600;
+            color: var(--text-main);
+            font-size: 0.9rem;
+        }
+
+        .teacher-badge {
+            background: #f1f5f9;
+            color: var(--text-muted);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* 3. JADWAL PIKET */
+        .piket-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .piket-card {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 1.2rem;
+            text-align: center;
+            border-top: 4px solid var(--accent);
+        }
+
+        .piket-card h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .piket-members {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .member-tag {
+            background: white;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            border: 1px solid #e2e8f0;
+        }
+
+        /* 4. INFORMASI PR */
+        .pr-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .pr-card {
+            background: #fffbebf5;
+            border: 1px solid #fef3c7;
+            border-left: 5px solid #f59e0b;
+            border-radius: 12px;
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .pr-card h4 {
+            color: #b45309;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pr-card p {
+            color: #78350f;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .pr-due {
+            display: inline-block;
+            background: #fef3c7;
+            color: #92400e;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* 5. GALERI ALBUM MOMEN */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .gallery-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            aspect-ratio: 4/3;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.9), transparent);
+            padding: 1.2rem;
+            color: white;
+        }
+
+        .gallery-overlay p {
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--primary);
+            color: #94a3b8;
+            text-align: center;
+            padding: 2rem 1rem;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            section { padding: 1.5rem; }
+            nav ul li a { padding: 0.8rem 0.8rem; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-content">
+            <span class="badge-class"><i class="fa-solid fa-graduation-cap"></i> Official Class Web</span>
+            <h1>X PM 1 PASUNDAN</h1>
+            <p>SMK Pasundan 1 Cimahi — Tahun Pelajaran 2026/2027</p>
+        </div>
+    </header>
+
+    <!-- NAVIGATION BAR -->
+    <nav>
+        <ul>
+            <li><a href="#profil"><i class="fa-solid fa-user-group"></i> Profil</a></li>
+            <li><a href="#jadwal"><i class="fa-solid fa-calendar-days"></i> Pelajaran</a></li>
+            <li><a href="#piket"><i class="fa-solid fa-broom"></i> Piket</a></li>
+            <li><a href="#pr"><i class="fa-solid fa-pen-to-square"></i> Info PR</a></li>
+            <li><a href="#album"><i class="fa-solid fa-images"></i> Momen</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+
+        <!-- 1. PROFIL KELAS -->
+        <section id="profil">
+            <h2 class="section-title"><i class="fa-solid fa-circle-info"></i> Profil Kelas X PM 1</h2>
+            <div class="profil-grid">
+                <div class="profil-card">
+                    <h3><i class="fa-solid fa-chalkboard-user"></i> Wali Kelas</h3>
+                    <ul>
+                        <li><span>Nama Wali Kelas:</span> <strong>-</strong></li>
+                        <li><span>Sekolah:</span> <strong>SMK Pasundan 1</strong></li>
+                        <li><span>Program:</span> <strong>Pemasaran (PM)</strong></li>
+                    </ul>
+                </div>
+                <div class="profil-card">
+                    <h3><i class="fa-solid fa-users"></i> Statistik Kelas</h3>
+                    <ul>
+                        <li><span>Total Siswa:</span> <strong>32 Siswa</strong></li>
+                        <li><span>Laki-Laki:</span> <strong>14 Siswa</strong></li>
+                        <li><span>Perempuan:</span> <strong>18 Siswa</strong></li>
+                    </ul>
+                </div>
+                <div class="profil-card">
+                    <h3><i class="fa-solid fa-crown"></i> Pengurus Kelas</h3>
+                    <ul>
+                        <li><span>Ketua Kelas:</span> <strong>[Nama Ketua]</strong></li>
+                        <li><span>Wakil Ketua:</span> <strong>[Nama Wakil]</strong></li>
+                        <li><span>Sekretaris:</span> <strong>[Nama Sekretaris]</strong></li>
+                        <li><span>Bendahara:</span> <strong>[Nama Bendahara]</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. JADWAL PELAJARAN -->
+        <section id="jadwal">
+            <h2 class="section-title"><i class="fa-solid fa-clock"></i> Jadwal Pelajaran</h2>
+            <div class="schedule-grid">
+                
+                <!-- SENIN -->
+                <div class="day-card">
+                    <div class="day-header">SENIN <span>4 Mapel</span></div>
+                    <ul class="subject-list">
+                        <li class="subject-item">
+                            <div class="subject-info"><span class="time">06.30 - 08.20</span><span class="name">Pembiasaan & Upacara</span></div>
+                        </li>
+                        <li class="subject-item">
+                            <div class="subject-info"><span class="time">08.20 - 10.10</span><span class="name">Bahasa Indonesia</span></div>
+                            <span class="teacher-badge">Bu Resi</span>
+                        </li>
+                        <li class="subject-item">
+                            <div class="subject-info"><span class="time">10.10 - 10.40</span><span class="name">Matematika</span></div>
+                            <span class="teacher-badge">Bu Agnia</span>
+                        </li>
+                        <li class="subject-item">
+                            <div class="subject-info"><span class="time">10.40 - 11.40</span><span class="name">Bahasa Indonesia</span></div>
+                            <span class="teacher-badge">Bu Resi</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- SELASA -->
+                <div class="day-card">
+                    <div class="day-header">SELASA <span>4 Mapel</span></div>
+                    <ul class="subject-list">
+                        <li class="subject-item">
+                            <div class="subject-info"><span class="time">07.00 - 08.00</span><span class="name">PJOK / Olahraga</span></div>
+                            <span class="teacher-badge">Pa Taufik</span>
+                        </li>
+                        <li class="subject-item">
+                            <div class="subject-info"><span class="time">08.00 - 09.00</span><span class="name">Produktif</span></div>
+                            <span class="teacher-badge">Pa Ken</span>
+                        </li>
+                        <li class="subject-item">
+                            <div class="subject-info"><span class="time">09.20 - 10.20</span><span class="name">IPAS</span></div>
+                            <span class="teacher-badge">Bu Rostiane</span>
+                        </li>
+                        <li class="subject-item">
+                            <div class="subject-info"><span class="time">10.20 - 11.20</span><span class="name">Sejarah</span></div>
+                            <span class="teacher-badge">Pa Iyus</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- RABU -->
+                <div class="day-card">
+                    <div class="day-header">RABU <span>3 Mapel</span></div>
+                    <ul class="subject-list">
+                        <li class="subject-item">
+                            <div class="subject-info"><span class="time">07.00 - 08.30</span><span class="name">Produktif</span></div>
+                            <span class="teacher-badge">Bu Ken</span>
+                        </li>
+                        <li class="subject-item">
+                            <div class="subject-info"><span class="time">08.30 - 09.00</span><span class="name">Bimbingan Konseling</span></div>
+                            <span class="teacher-badge">Guru BK</span>
+                        </li>
+                        <li class="subject-item">
+                            <div class="subject-info"><span class="time">09.20 - 11.20</span><span class="name">Produktif</span></div>
+                            <span class="teacher-badge">Pa Hidayat</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- KAMIS -->
+                <div class="day-card">
+                    <div class="day-header">KAMIS <span>4 Mapel</span></div>
+                    <ul class="subject-list">
+                        <li class="subject-item">
+                            <div class="subject-info"><span class="time">07.00 - 08.00</span><span class="name">Bahasa Inggris</span></div>
+                            <span class="teacher-badge">Miss Silmi</span>
+                        </li>
+                        <li class="subject-item">
+                            <div class="subject-info"><span class="time">08.00 - 09.00</span><span class="name">PPKn</span></div>
+                            <span class="teacher-badge">Bu Ema</span>
+                        </li>
+                        <li class="subject-item">
+                            <div class="subject-info"><span class="time">09.20 - 10.20</span><span class="name">Pendidikan Agama</span></div>
+                            <span class="teacher-badge">Pa Nanang</span>
+                        </li>
+                        <li class="subject-item">
+                            <div class="subject-info"><span class="time">10.20 - 11.20</span><span class="name">Bahasa Sunda</span></div>
+                            <span class="teacher-badge">Pa Ilham</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- JUMAT -->
+                <div class="day-card">
+                    <div class="day-header">JUMAT <span>3 Mapel</span></div>
+                    <ul class="subject-list">
+                        <li class="subject-item">
+                            <div class="subject-info"><span class="time">06.30 - 08.00</span><span class="name">Pengajian Jumat</span></div>
+                        </li>
+                        <li class="subject-item">
+                            <div class="subject-info"><span class="time">08.00 - 09.00</span><span class="name">Coding</span></div>
+                            <span class="teacher-badge">Pa Cecep</span>
+                        </li>
+                        <li class="subject-item">
+                            <div class="subject-info"><span class="time">09.20 - 10.20</span><span class="name">IPAS</span></div>
+                            <span class="teacher-badge">Bu Rostiane</span>
+                        </li>
+                        <li class="subject-item">
+                            <div class="subject-info"><span class="time">10.20 - 11.20</span><span class="name">Seni Tari</span></div>
+                            <span class="teacher-badge">Bu Bella</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 3. JADWAL PIKET -->
+        <section id="piket">
+            <h2 class="section-title"><i class="fa-solid fa-sparkles"></i> Jadwal Piket Kebersihan</h2>
+            <div class="piket-grid">
+                
+                <div class="piket-card">
+                    <h4>Senin</h4>
+                    <div class="piket-members">
+                        <span class="member-tag">Wandi</span>
+                        <span class="member-tag">Annisa</span>
+                        <span class="member-tag">Maesya</span>
+                        <span class="member-tag">Safitri</span>
+                        <span class="member-tag">Rhegy</span>
+                        <span class="member-tag">Rizka</span>
+                        <span class="member-tag">Putra</span>
+                    </div>
+                </div>
+
+                <div class="piket-card">
+                    <h4>Selasa</h4>
+                    <div class="piket-members">
+                        <span class="member-tag">Adi</span>
+                        <span class="member-tag">M. Fadil</span>
+                        <span class="member-tag">Rangga</span>
+                        <span class="member-tag">Alipiya</span>
+                        <span class="member-tag">Revan</span>
+                        <span class="member-tag">Anita</span>
+                    </div>
+                </div>
+
+                <div class="piket-card">
+                    <h4>Rabu</h4>
+                    <div class="piket-members">
+                        <span class="member-tag">Dian</span>
+                        <span class="member-tag">Al</span>
+                        <span class="member-tag">Akmal</span>
+                        <span class="member-tag">Sabilia</span>
+                        <span class="member-tag">Geisha</span>
+                        <span class="member-tag">Dik</span>
+                    </div>
+                </div>
+
+                <div class="piket-card">
+                    <h4>Kamis</h4>
+                    <div class="piket-members">
+                        <span class="member-tag">Anwar</span>
+                        <span class="member-tag">Riki</span>
+                        <span class="member-tag">Akbar</span>
+                        <span class="member-tag">Yusuf</span>
+                        <span class="member-tag">Meysa</span>
+                        <span class="member-tag">Putri</span>
+                        <span class="member-tag">Feliska</span>
+                    </div>
+                </div>
+
+                <div class="piket-card">
+                    <h4>Jumat</h4>
+                    <div class="piket-members">
+                        <span class="member-tag">Haikal</span>
+                        <span class="member-tag">Rizwal</span>
+                        <span class="member-tag">Della</span>
+                        <span class="member-tag">Wulan</span>
+                        <span class="member-tag">Khalistya</span>
+                        <span class="member-tag">Siti</span>
+                        <span class="member-tag">Syifa</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4. INFORMASI PR -->
+        <section id="pr">
+            <h2 class="section-title"><i class="fa-solid fa-list-check"></i> Catatan PR & Tugas</h2>
+            <div class="pr-grid">
+                <div class="pr-card">
+                    <h4><i class="fa-solid fa-book"></i> Bahasa Indonesia</h4>
+                    <p>Membuat rangkuman materi di buku catatan sesuai arahan guru pengajar.</p>
+                    <span class="pr-due"><i class="fa-regular fa-clock"></i> Tenggat: Senin Depan</span>
+                </div>
+                <div class="pr-card">
+                    <h4><i class="fa-solid fa-laptop-code"></i> Coding / Informatika</h4>
+                    <p>Latihan logika pemograman & penyelesaian modul halaman 12.</p>
+                    <span class="pr-due"><i class="fa-regular fa-clock"></i> Tenggat: Jumat Depan</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. ALBUM MOMEN -->
+        <section id="album">
+            <h2 class="section-title"><i class="fa-solid fa-camera-retro"></i> Galeri Momen Kelas</h2>
+            <div class="gallery-grid">
+                <div class="gallery-card">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" alt="Kebersamaan">
+                    <div class="gallery-overlay"><p>Momen MPLS & Kebersamaan</p></div>
+                </div>
+                <div class="gallery-card">
+                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80" alt="Belajar">
+                    <div class="gallery-overlay"><p>Suasana Belajar di Kelas</p></div>
+                </div>
+                <div class="gallery-card">
+                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80" alt="Kerja Kelompok">
+                    <div class="gallery-overlay"><p>Kerja Kelompok Produktif</p></div>
+                </div>
+                <div class="gallery-card">
+                    <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=600&q=80" alt="Acara Sekolah">
+                    <div class="gallery-overlay"><p>Kegiatan Ekstrakurikuler</p></div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Class X PM 1 - SMK Pasundan 1 Cimahi. Built with <i class="fa-solid fa-heart" style="color: #ef4444;"></i></p>
+    </footer>
+
+</body>
+  </html>

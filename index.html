@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Resmi Kelas X PM 1 - SMK Pasundan 1 Cimahi</title>
+    <style>
+        /* RESET & STYLE DASAR */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* HEADER & NAVIGASI */
+        header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        nav {
+            background-color: #1a252f;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            display: block;
+            transition: background 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #34495e;
+        }
+
+        /* CONTAINER / UTAMA */
+        .container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        section {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #1e3c72;
+            border-bottom: 3px solid #1e3c72;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* GRID UNTUK PROFIL */
+        .profil-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-left: 4px solid #1e3c72;
+            border-radius: 4px;
+        }
+
+        .card h3 {
+            margin-bottom: 0.5rem;
+            color: #2a5298;
+        }
+
+        /* TABEL JADWAL & PIKET */
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.95rem;
+            vertical-align: top;
+        }
+
+        table th {
+            background-color: #1e3c72;
+            color: white;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .break-row {
+            background-color: #e2e8f0 !important;
+            font-weight: bold;
+            color: #475569;
+        }
+
+        /* CARD PEKERJAAN RUMAH */
+        .pr-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .pr-item {
+            background: #fff3cd;
+            border: 1px solid #ffeeba;
+            border-left: 5px solid #ffc107;
+            padding: 1rem;
+            border-radius: 5px;
+        }
+
+        .pr-item h4 {
+            color: #856404;
+            margin-bottom: 0.5rem;
+        }
+
+        .deadline {
+            font-size: 0.85rem;
+            color: #d9534f;
+            font-weight: bold;
+        }
+
+        /* ALBUM GALERI */
+        .galeri-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .galeri-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .galeri-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s;
+        }
+
+        .galeri-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .caption {
+            padding: 0.5rem;
+            background: #f8f9fa;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #1a252f;
+            color: white;
+            margin-top: 2rem;
+        }
+
+        /* PIKET LIST ALIGNMENT */
+        .piket-list {
+            text-align: left;
+            padding-left: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h1>KELAS X PM 1</h1>
+        <p>SMK Pasundan 1 Cimahi — T.P. 2026/2027</p>
+    </header>
+
+    <!-- NAVIGASI MENU -->
+    <nav>
+        <ul>
+            <li><a href="#profil">Profil Kelas</a></li>
+            <li><a href="#jadwal-pelajaran">Jadwal Pelajaran</a></li>
+            <li><a href="#jadwal-piket">Jadwal Piket</a></li>
+            <li><a href="#informasi-pr">Informasi PR</a></li>
+            <li><a href="#album">Album Momen</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+
+        <!-- 1. PROFIL KELAS -->
+        <section id="profil">
+            <h2>Profil Kelas X PM 1</h2>
+            <div class="profil-grid">
+                <div class="card">
+                    <h3>Wali Kelas</h3>
+                    <p><strong>Nama:</strong> Ibu/Bapak [Nama Wali Kelas]</p>
+                    <p><strong>Sekolah:</strong> SMK Pasundan 1 Cimahi</p>
+                </div>
+                <div class="card">
+                    <h3>Statistik Kelas</h3>
+                    <p><strong>Jumlah Siswa:</strong> [Isi Jumlah] Siswa</p>
+                    <p><strong>Siswa Laki-laki:</strong> [Jumlah]</p>
+                    <p><strong>Siswa Perempuan:</strong> [Jumlah]</p>
+                </div>
+                <div class="card">
+                    <h3>Pengurus Kelas</h3>
+                    <p><strong>Ketua Kelas:</strong> [Nama Ketua]</p>
+                    <p><strong>Wakil Ketua:</strong> [Nama Wakil]</p>
+                    <p><strong>Sekretaris:</strong> [Nama Sekretaris]</p>
+                    <p><strong>Bendahara:</strong> [Nama Bendahara]</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. JADWAL PELAJARAN -->
+        <section id="jadwal-pelajaran">
+            <h2>Jadwal Pelajaran X PM 1</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Hari</th>
+                            <th>Jam Ke</th>
+                            <th>Waktu</th>
+                            <th>Mata Pelajaran</th>
+                            <th>Guru Pengajar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- SENIN -->
+                        <tr><td rowspan="7"><strong>SENIN</strong></td><td>0</td><td>06.30 - 07.00</td><td>PEMBIASAAN</td><td>-</td></tr>
+                        <tr><td>1 - 2</td><td>07.00 - 08.20</td><td>UPACARA</td><td>-</td></tr>
+                        <tr><td>3 - 5</td><td>08.20 - 10.10</td><td>B. Indonesia</td><td>Bu Resi</td></tr>
+                        <tr class="break-row"><td colspan="4">09.20 - 09.40 | ISTIRAHAT</td></tr>
+                        <tr><td>6</td><td>10.10 - 10.40</td><td>Matematika</td><td>Bu Agnia</td></tr>
+                        <tr><td>7 - 8</td><td>10.40 - 11.40</td><td>B. Indonesia</td><td>Bu Resi</td></tr>
+                        <tr class="break-row"><td colspan="4">11.40 - 12.30 | SHALAT DZUHUR BERJAMA'AH</td></tr>
+
+                        <!-- SELASA -->
+                        <tr><td rowspan="9"><strong>SELASA</strong></td><td>0</td><td>06.30 - 07.00</td><td>PEMBIASAAN</td><td>-</td></tr>
+                        <tr><td>1 - 2</td><td>07.00 - 08.00</td><td>Olahraga</td><td>Pa Taufik</td></tr>
+                        <tr><td>3 - 4</td><td>08.00 - 09.00</td><td>Produktif</td><td>Pa Ken</td></tr>
+                        <tr class="break-row"><td colspan="4">09.00 - 09.20 | ISTIRAHAT</td></tr>
+                        <tr><td>5 - 6</td><td>09.20 - 10.20</td><td>IPAS</td><td>Bu Rostiane</td></tr>
+                        <tr><td>7 - 8</td><td>10.20 - 11.20</td><td>Sejarah</td><td>Pa Iyus</td></tr>
+                        <tr class="break-row"><td colspan="4">11.20 - 12.30 | SHALAT DZUHUR BERJAMA'AH</td></tr>
+
+                        <!-- RABU -->
+                        <tr><td rowspan="9"><strong>RABU</strong></td><td>0</td><td>06.30 - 07.00</td><td>PEMBIASAAN</td><td>-</td></tr>
+                        <tr><td>1 - 3</td><td>07.00 - 08.30</td><td>Produktif</td><td>Bu Ken</td></tr>
+                        <tr><td>4</td><td>08.30 - 09.00</td><td>Bimbingan Konseling</td><td>BK</td></tr>
+                        <tr class="break-row"><td colspan="4">09.00 - 09.20 | ISTIRAHAT</td></tr>
+                        <tr><td>5 - 6</td><td>09.20 - 10.20</td><td>Produktif</td><td>Pa Hidayat</td></tr>
+                        <tr><td>7 - 8</td><td>10.20 - 11.20</td><td>Produktif</td><td>Pa Hidayat</td></tr>
+                        <tr class="break-row"><td colspan="4">11.20 - 12.30 | SHALAT DZUHUR BERJAMA'AH</td></tr>
+
+                        <!-- KAMIS -->
+                        <tr><td rowspan="9"><strong>KAMIS</strong></td><td>0</td><td>06.30 - 07.00</td><td>PEMBIASAAN</td><td>-</td></tr>
+                        <tr><td>1 - 2</td><td>07.00 - 08.00</td><td>B. Inggris</td><td>Miss Silmi</td></tr>
+                        <tr><td>3 - 4</td><td>08.00 - 09.00</td><td>PKN</td><td>Bu Ema</td></tr>
+                        <tr class="break-row"><td colspan="4">09.00 - 09.20 | ISTIRAHAT</td></tr>
+                        <tr><td>5 - 6</td><td>09.20 - 10.20</td><td>Agama</td><td>Pa Nanang</td></tr>
+                        <tr><td>7 - 8</td><td>10.20 - 11.20</td><td>B. Sunda</td><td>Pa Ilham</td></tr>
+                        <tr class="break-row"><td colspan="4">11.20 - 12.30 | SHALAT DZUHUR BERJAMA'AH</td></tr>
+
+                        <!-- JUMAT -->
+                        <tr><td rowspan="8"><strong>JUMAT</strong></td><td>-</td><td>06.30 - 08.00</td><td>PENGAJIAN JUM'AT</td><td>-</td></tr>
+                        <tr><td>1 - 2</td><td>08.00 - 09.00</td><td>Coding</td><td>Pa Cecep</td></tr>
+                        <tr class="break-row"><td colspan="4">09.00 - 09.20 | ISTIRAHAT</td></tr>
+                        <tr><td>3 - 4</td><td>09.20 - 10.20</td><td>IPAS</td><td>Bu Rostiane</td></tr>
+                        <tr><td>5 - 6</td><td>10.20 - 11.20</td><td>Seni Tari</td><td>Bu Bella</td></tr>
+                        <tr class="break-row"><td colspan="4">11.20 - 13.00 | SHALAT DZUHUR BERJAMA'AH</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 3. JADWAL PIKET (DIBERIKAN BARU) -->
+        <section id="jadwal-piket">
+            <h2>Jadwal Piket Kebersihan</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Senin</th>
+                            <th>Selasa</th>
+                            <th>Rabu</th>
+                            <th>Kamis</th>
+                            <th>Jumat</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <ol class="piket-list">
+                                    <li>Wandi</li>
+                                    <li>Annisa</li>
+                                    <li>Maesya</li>
+                                    <li>Safitri</li>
+                                    <li>Rhegy</li>
+                                    <li>Rizka</li>
+                                    <li>Putra</li>
+                                </ol>
+                            </td>
+                            <td>
+                                <ol class="piket-list">
+                                    <li>Adi</li>
+                                    <li>M. Fadil</li>
+                                    <li>Rangga</li>
+                                    <li>Alipiya</li>
+                                    <li>Revan</li>
+                                    <li>Anita</li>
+                                </ol>
+                            </td>
+                            <td>
+                                <ol class="piket-list">
+                                    <li>Dian</li>
+                                    <li>Al</li>
+                                    <li>Akmal</li>
+                                    <li>Sabilia</li>
+                                    <li>Geisha</li>
+                                    <li>Dik</li>
+                                </ol>
+                            </td>
+                            <td>
+                                <ol class="piket-list">
+                                    <li>Anwar</li>
+                                    <li>Riki</li>
+                                    <li>Akbar</li>
+                                    <li>Yusuf</li>
+                                    <li>Meysa</li>
+                                    <li>Putri</li>
+                                    <li>Feliska</li>
+                                </ol>
+                            </td>
+                            <td>
+                                <ol class="piket-list">
+                                    <li>Haikal</li>
+                                    <li>Rizwal</li>
+                                    <li>Della</li>
+                                    <li>Wulan</li>
+                                    <li>Khalistya</li>
+                                    <li>Siti</li>
+                                    <li>Syifa</li>
+                                </ol>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 4. INFORMASI PEKERJAAN RUMAH (PR) -->
+        <section id="informasi-pr">
+            <h2>Informasi Pekerjaan Rumah (PR)</h2>
+            <div class="pr-list">
+                <div class="pr-item">
+                    <h4>B. Indonesia - Bu Resi</h4>
+                    <p>Membuat rangkuman materi di buku catatan.</p>
+                    <p class="deadline">Deadline: Senin Depan</p>
+                </div>
+                <div class="pr-item">
+                    <h4>Produktif - Pa Hidayat</h4>
+                    <p>Mengerjakan tugas bab pemasaran digital.</p>
+                    <p class="deadline">Deadline: Rabu Depan</p>
+                </div>
+                <div class="pr-item">
+                    <h4>B. Inggris - Miss Silmi</h4>
+                    <p>Mengerjakan latihan soal di modul halaman 15.</p>
+                    <p class="deadline">Deadline: Kamis Depan</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. ALBUM MOMEN KELAS -->
+        <section id="album">
+            <h2>Album Momen X PM 1</h2>
+            <p style="margin-bottom: 1rem;">Kumpulan kenangan dan kegiatan bersama kelas X PM 1 SMK Pasundan 1 Cimahi.</p>
+            <div class="galeri-grid">
+                <div class="galeri-item">
+                    <img src="https://via.placeholder.com/300x200?text=Foto+MPLS" alt="Momen MPLS">
+                    <div class="caption">Momen MPLS Hari Pertama</div>
+                </div>
+                <div class="galeri-item">
+                    <img src="https://via.placeholder.com/300x200?text=Pengajian+Jumat" alt="Pengajian Jumat">
+                    <div class="caption">Pengajian Rutin Hari Jumat</div>
+                </div>
+                <div class="galeri-item">
+                    <img src="https://via.placeholder.com/300x200?text=Kerja+Bakti" alt="Kerja Bakti">
+                    <div class="caption">Kebersihan Kelas Bersama</div>
+                </div>
+                <div class="galeri-item">
+                    <img src="https://via.placeholder.com/300x200?text=Foto+Bersama+Wali+Kelas" alt="Foto Bersama">
+                    <div class="caption">Foto Bersama Wali Kelas</div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 X PM 1 - SMK Pasundan 1 Cimahi. All Rights Reserved.</p>
+    </footer>
+
+</body>
+  </html>
